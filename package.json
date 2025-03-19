@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.ts"
   },
   "repository": {
     "type": "git",
@@ -16,8 +17,15 @@
     "url": "https://github.com/1mRen/group-project-repo/issues"
   },
   "homepage": "https://github.com/1mRen/group-project-repo#readme",
-  "description": "",
+  "description": "Members: <br>\r Marc Lawrence Magadan <br>\r Jairus Azer Andrade <br>\r John Clarence Palma",
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^5.0.0",
+    "@types/helmet": "^0.0.48",
+    "@types/uuid": "^10.0.0",
+    "nodemon": "^3.1.9",
     "typescript": "^5.8.2"
   },
   "dependencies": {
@@ -27,6 +35,10 @@
     "express": "^4.21.2",
     "helmet": "^8.1.0",
     "http-status-codes": "^2.3.0",
+    "joi": "^17.13.3",
+    "mysql2": "^3.13.0",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.21",
     "uuid": "^11.1.0"
   }
 }
