@@ -4,11 +4,8 @@
 - [Project Overview](#project-overview)  
 - [Members](#members)  
 - [Setup Instructions](#setup-instructions)  
-  - [Clone the Repository](#1-clone-the-repository)  
-  - [Install Dependencies](#2-install-dependencies)  
-  - [Configure Environment Variables](#3-configure-environment-variables)  
-  - [Run the Project](#4-run-the-project)  
 - [API Documentation](#api-documentation)
+- [Testing](#testing)
 
 ## Project Overview  
 This project is an API for user management with CRUD (Create, Read, Update, Delete) functionality. It allows users to be created, retrieved, updated, and deleted through a structured API.  
@@ -39,7 +36,7 @@ npm i express dotenv helmet cors http-status-codes uuid bcryptjs joi typeorm ref
 
 Install development dependencies:  
 ```cmd
-npm i -D nodemon typescript @types/express @types/dotenv @types/helmet @types/cors @types/uuid @types/bcryptjs
+npm i -D nodemon typescript ts-node @types/express @types/dotenv @types/helmet @types/cors @types/uuid @types/bcryptjs
 ```  
 
 ### 3. Configure Environment Variables  
@@ -106,3 +103,85 @@ npm run dev
 #### 5. Delete User
 **Endpoint:** `DELETE /users/:id`  
 **Description:** Deletes a user by their ID.
+
+Here’s the **Testing** section formatted like the rest of your README. You can just copy and paste it:
+
+---
+
+## [Testing](#table-of-contents)
+
+This section provides instructions on how to test the API using **Thunder Client** and **cURL**.
+
+### 1. Testing with Thunder Client  
+Thunder Client is a lightweight API testing extension for VS Code.  
+
+#### Steps:  
+1. Open **VS Code** and install the **Thunder Client** extension.  
+2. Open Thunder Client and create a new request.  
+3. Use the following configurations to test different endpoints:  
+
+- **Get All Users** (GET request to `/users`)  
+<img src="https://github.com/1mRen/group-project-repo/blob/Magadan/README_assets/GET_allUsers.png" alt="GET_allUsers.png" style="width: auto; height: auto;">
+
+- **Get User by ID** (GET request to `/users/:id`)  
+<img src="https://github.com/1mRen/group-project-repo/blob/Magadan/README_assets/GET_userById.png" alt="GET_userById" style="width: auto; height: auto;">
+
+- **Create User** (POST request to `/users` with JSON body)  
+<img src="https://github.com/1mRen/group-project-repo/blob/Magadan/README_assets/POST.png" alt="Create User" style="width: auto; height: auto;">
+
+- **Update User** (PUT request to `/users/:id` with updated JSON body)  
+<img src="https://github.com/1mRen/group-project-repo/blob/Magadan/README_assets/PUT.png" alt="Update User" style="width: auto; height: auto;">
+
+- **Delete User** (DELETE request to `/users/:id`)  
+<img src="https://github.com/1mRen/group-project-repo/blob/Magadan/README_assets/DELETE.png" alt="Delete User" style="width: auto; height: auto;">
+
+4. Click **Send** to execute the request and check the response.
+
+---
+
+### 2. Testing with cURL  
+cURL is a command-line tool for making HTTP requests.
+
+#### Examples:
+
+- **Get All Users**  
+  ```sh
+  curl -X GET http://localhost:your_port/users
+  ```
+
+- **Get User by ID**  
+  ```sh
+  curl -X GET http://localhost:your_port/users/{id}
+  ```
+
+- **Create a User**  
+  ```sh
+  curl -X POST http://localhost:your_port/users \
+       -H "Content-Type: application/json" \
+       -d '{
+         "email": "user@example.com",
+         "password": "securepassword",
+         "username": "user123",
+         "title": "Mr.",
+         "firstName": "John",
+         "lastName": "Doe",
+         "role": "admin"
+       }'
+  ```
+
+- **Update User**  
+  ```sh
+  curl -X PUT http://localhost:your_port/users/{id} \
+       -H "Content-Type: application/json" \
+       -d '{
+         "username": "newUsername",
+         "password": "newSecurePassword"
+       }'
+  ```
+
+- **Delete User**  
+  ```sh
+  curl -X DELETE http://localhost:your_port/users/{id}
+  ```
+
+Replace `{id}` with an actual user ID and `your_port` with the running port of your API.
