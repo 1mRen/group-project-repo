@@ -20,13 +20,11 @@ This project is an API for user management with CRUD (Create, Read, Update, Dele
 ## Setup Instructions  
 
 ### 1. Clone the Repository  
-[Back to Top](#table-of-contents)  
 ```cmd
 git clone https://github.com/1mRen/group-project-repo
 ```  
 
 ### 2. Install Dependencies  
-[Back to Top](#table-of-contents)  
 Navigate into the project directory and initialize npm:  
 ```cmd
 cd group-project-repo
@@ -44,7 +42,6 @@ npm i -D nodemon typescript @types/express @types/dotenv @types/helmet @types/co
 ```  
 
 ### 3. Configure Environment Variables  
-[Back to Top](#table-of-contents)  
 Copy the example environment file and modify it according to your configuration:  
 ```cmd
 copy .env.example .env
@@ -62,7 +59,6 @@ DB_NAME=your_db_name
 ```  
 
 ### 4. Run the Project  
-[Back to Top](#table-of-contents)  
 To start the development server, run:  
 ```cmd
 npm run dev
