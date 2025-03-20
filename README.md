@@ -8,6 +8,7 @@
   - [Install Dependencies](#2-install-dependencies)  
   - [Configure Environment Variables](#3-configure-environment-variables)  
   - [Run the Project](#4-run-the-project)  
+- [API Documentation](#api-documentation)
 
 ## Project Overview  
 This project is an API for user management with CRUD (Create, Read, Update, Delete) functionality. It allows users to be created, retrieved, updated, and deleted through a structured API.  
@@ -17,7 +18,7 @@ This project is an API for user management with CRUD (Create, Read, Update, Dele
 - Jairus Azer Andrade  
 - John Clarence Palma  
 
-## Setup Instructions  
+## [Setup Instructions](#table-of-contents)
 
 ### 1. Clone the Repository  
 ```cmd
@@ -63,3 +64,45 @@ To start the development server, run:
 ```cmd
 npm run dev
 ```
+
+## [API Documentation](#table-of-contents)
+### User Endpoints
+
+#### 1. Get All Users
+**Endpoint:** `GET /users`  
+**Description:** Retrieves a list of all users.
+
+#### 2. Get User by ID
+**Endpoint:** `GET /users/:id`  
+**Description:** Retrieves a single user by their unique ID.
+
+#### 3. Create a New User
+**Endpoint:** `POST /users`  
+**Description:** Creates a new user with the provided details.
+**Request Body:**
+```json
+{
+  "email": "user@example.com",
+  "password": "securepassword",
+  "username": "user123",
+  "title": "Mr.",
+  "firstName": "John",
+  "lastName": "Doe",
+  "role": "admin"
+}
+```
+
+#### 4. Update User
+**Endpoint:** `PUT /users/:id`  
+**Description:** Updates an existing user's details.
+**Request Body:** (Only include fields to update)
+```json
+{
+  "username": "newUsername",
+  "password": "newSecurePassword"
+}
+```
+
+#### 5. Delete User
+**Endpoint:** `DELETE /users/:id`  
+**Description:** Deletes a user by their ID.
