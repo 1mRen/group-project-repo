@@ -18,7 +18,7 @@ This project is an API for user management with CRUD (Create, Read, Update, Dele
 - Jairus Azer Andrade  
 - John Clarence Palma  
 
-## Setup Instructions  
+## [Setup Instructions] (#table-of-contents)
 
 ### 1. Clone the Repository  
 ```cmd
@@ -65,7 +65,7 @@ To start the development server, run:
 npm run dev
 ```
 
-## API Documentation
+## [API Documentation](#table-of-contents)
 ### User Endpoints
 
 #### 1. Get All Users
