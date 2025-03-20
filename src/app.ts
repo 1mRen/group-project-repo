@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import helmet from 'helmet';
 import cors from 'cors';
 import 'reflect-metadata';
+import { errorHandler } from "./_middleware/error-handler";
+import usersController from './users/users.controller'; 
 
 
 dotenv.config(); // Load environment variables
@@ -14,6 +16,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(helmet());
+app.use(errorHandler);
+
+//Routes
+app.use('/users', usersController); 
 
 app.listen(port, () => {
     console.log(` Server is running on port ${port}`);
