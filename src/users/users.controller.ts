@@ -1,7 +1,7 @@
-import { StatusCodes } from "http-status-codes"; // make use for HTTP status code
-import { ApiError } from "../_helpers/api-error"; // make user Error Handler
+import { StatusCodes } from "http-status-codes"; // HTTP status codes
+import { ApiError } from "../_helpers/api-error"; // Error handler
 import express, { Request, Response, NextFunction } from "express";
-import Joi, { string } from "joi";
+import Joi from "joi";
 import { validateRequest } from "../_middleware/validate-request";
 import { Role } from "../_helpers/role";
 import { userService } from "./user.service";
@@ -21,16 +21,19 @@ export default router;
 async function getAll(req: Request, res: Response, next: NextFunction) {
 	try {
 		const users = await userService.getAll();
-		res.json(users);
+		res.status(StatusCodes.OK).json(users);
 	} catch (error) {
-		next(error);
+		next(new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, error.message));
 	}
 }
 
 async function getById(req: Request, res: Response, next: NextFunction) {
 	try {
 		const user = await userService.getById(req.params.id);
-		res.json(user);
+		if (!user) {
+			throw new ApiError(StatusCodes.NOT_FOUND, "User not found");
+		}
+		res.status(StatusCodes.OK).json(user);
 	} catch (error) {
 		next(error);
 	}
@@ -39,27 +42,29 @@ async function getById(req: Request, res: Response, next: NextFunction) {
 async function create(req: Request, res: Response, next: NextFunction) {
 	try {
 		await userService.create(req.body);
-		res.json({ message: "User created successfully" });
+		res
+			.status(StatusCodes.CREATED)
+			.json({ message: "User created successfully" });
 	} catch (error) {
-		next(error);
+		next(new ApiError(StatusCodes.BAD_REQUEST, error.message));
 	}
 }
 
 async function update(req: Request, res: Response, next: NextFunction) {
 	try {
 		await userService.update(req.params.id, req.body);
-		res.json({ message: "User updated successfully" });
+		res.status(StatusCodes.OK).json({ message: "User updated successfully" });
 	} catch (error) {
-		next(error);
+		next(new ApiError(StatusCodes.BAD_REQUEST, error.message));
 	}
 }
 
 async function _delete(req: Request, res: Response, next: NextFunction) {
 	try {
 		await userService.delete(req.params.id);
-		res.json({ message: "User deleted successfully" });
+		res.status(StatusCodes.OK).json({ message: "User deleted successfully" });
 	} catch (error) {
-		next(error);
+		next(new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, error.message));
 	}
 }
 
