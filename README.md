@@ -106,6 +106,3 @@ npm run dev
 #### 5. Delete User
 **Endpoint:** `DELETE /users/:id`  
 **Description:** Deletes a user by their ID.
-
-Each request and response follows standard HTTP status codes to indicate success or errors.
-
