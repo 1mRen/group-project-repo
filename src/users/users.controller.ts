@@ -23,7 +23,17 @@ async function getAll(req: Request, res: Response, next: NextFunction) {
 		const users = await userService.getAll();
 		res.status(StatusCodes.OK).json(users);
 	} catch (error) {
-		next(new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, error.message));
+		if (error instanceof ApiError) {
+			next(error);
+		} else {
+			const err = error as Error;
+			next(
+				new ApiError(
+					StatusCodes.INTERNAL_SERVER_ERROR,
+					err.message || "An unexpected error occurred"
+				)
+			);
+		}
 	}
 }
 
@@ -35,7 +45,17 @@ async function getById(req: Request, res: Response, next: NextFunction) {
 		}
 		res.status(StatusCodes.OK).json(user);
 	} catch (error) {
-		next(error);
+		if (error instanceof ApiError) {
+			next(error);
+		} else {
+			const err = error as Error;
+			next(
+				new ApiError(
+					StatusCodes.INTERNAL_SERVER_ERROR,
+					err.message || "An unexpected error occurred"
+				)
+			);
+		}
 	}
 }
 
@@ -46,7 +66,10 @@ async function create(req: Request, res: Response, next: NextFunction) {
 			.status(StatusCodes.CREATED)
 			.json({ message: "User created successfully" });
 	} catch (error) {
-		next(new ApiError(StatusCodes.BAD_REQUEST, error.message));
+		const err = error as Error;
+		next(
+			new ApiError(StatusCodes.BAD_REQUEST, err.message || "Failed to create user")
+		);
 	}
 }
 
@@ -55,7 +78,10 @@ async function update(req: Request, res: Response, next: NextFunction) {
 		await userService.update(req.params.id, req.body);
 		res.status(StatusCodes.OK).json({ message: "User updated successfully" });
 	} catch (error) {
-		next(new ApiError(StatusCodes.BAD_REQUEST, error.message));
+		const err = error as Error;
+		next(
+			new ApiError(StatusCodes.BAD_REQUEST, err.message || "Failed to update user")
+		);
 	}
 }
 
@@ -64,7 +90,13 @@ async function _delete(req: Request, res: Response, next: NextFunction) {
 		await userService.delete(req.params.id);
 		res.status(StatusCodes.OK).json({ message: "User deleted successfully" });
 	} catch (error) {
-		next(new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, error.message));
+		const err = error as Error;
+		next(
+			new ApiError(
+				StatusCodes.INTERNAL_SERVER_ERROR,
+				err.message || "Failed to delete user"
+			)
+		);
 	}
 }
 
