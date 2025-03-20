@@ -104,8 +104,6 @@ npm run dev
 **Endpoint:** `DELETE /users/:id`  
 **Description:** Deletes a user by their ID.
 
-Here’s the **Testing** section formatted like the rest of your README. You can just copy and paste it:
-
 ---
 
 ## [Testing](#table-of-contents)
@@ -121,19 +119,19 @@ Thunder Client is a lightweight API testing extension for VS Code.
 3. Use the following configurations to test different endpoints:  
 
 - **Get All Users** (GET request to `/users`)  
-<img src="https://github.com/1mRen/group-project-repo/blob/Magadan/README_assets/GET_allUsers.png" alt="GET_allUsers.png" style="width: auto; height: auto;">
+<img src="https://github.com/1mRen/group-project-repo/blob/main/README_assets/GET_allUsers.png" alt="GET_allUsers.png" style="width: auto; height: auto;">
 
 - **Get User by ID** (GET request to `/users/:id`)  
-<img src="https://github.com/1mRen/group-project-repo/blob/Magadan/README_assets/GET_userById.png" alt="GET_userById" style="width: auto; height: auto;">
+<img src="https://github.com/1mRen/group-project-repo/blob/main/README_assets/GET_userById.png" alt="GET_userById" style="width: auto; height: auto;">
 
 - **Create User** (POST request to `/users` with JSON body)  
-<img src="https://github.com/1mRen/group-project-repo/blob/Magadan/README_assets/POST.png" alt="Create User" style="width: auto; height: auto;">
+<img src="https://github.com/1mRen/group-project-repo/blob/main/README_assets/POST.png" alt="Create User" style="width: auto; height: auto;">
 
 - **Update User** (PUT request to `/users/:id` with updated JSON body)  
-<img src="https://github.com/1mRen/group-project-repo/blob/Magadan/README_assets/PUT.png" alt="Update User" style="width: auto; height: auto;">
+<img src="https://github.com/1mRen/group-project-repo/blob/main/README_assets/PUT.png" alt="Update User" style="width: auto; height: auto;">
 
 - **Delete User** (DELETE request to `/users/:id`)  
-<img src="https://github.com/1mRen/group-project-repo/blob/Magadan/README_assets/DELETE.png" alt="Delete User" style="width: auto; height: auto;">
+<img src="https://github.com/1mRen/group-project-repo/blob/main/README_assets/DELETE.png" alt="Delete User" style="width: auto; height: auto;">
 
 4. Click **Send** to execute the request and check the response.
 
