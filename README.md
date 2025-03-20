@@ -104,8 +104,6 @@ npm run dev
 **Endpoint:** `DELETE /users/:id`  
 **Description:** Deletes a user by their ID.
 
----
-
 ## [Testing](#table-of-contents)
 
 This section provides instructions on how to test the API using **Thunder Client** and **cURL**.
