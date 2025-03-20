@@ -18,7 +18,7 @@ This project is an API for user management with CRUD (Create, Read, Update, Dele
 - Jairus Azer Andrade  
 - John Clarence Palma  
 
-## [Setup Instructions] (#table-of-contents)
+## [Setup Instructions](#table-of-contents)
 
 ### 1. Clone the Repository  
 ```cmd
