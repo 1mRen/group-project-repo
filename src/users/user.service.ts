@@ -62,11 +62,12 @@ async function update(id: string, params: Partial<CreateUserParams>): Promise<vo
     throw new ApiError(StatusCodes.CONFLICT, `Username "${params.username}" is already taken`);
   }
 
-  // Hash new password if provided
-  if (params.password) {
-    const salt = await bcrypt.genSalt(10);
-    params.password = await bcrypt.hash(params.password, salt);
-  }
+  // Hash new password only if it's different from the stored hash
+if (params.password && !(await bcrypt.compare(params.password, user.passwordHash))) {
+  const salt = await bcrypt.genSalt(10);
+  params.password = await bcrypt.hash(params.password, salt);
+}
+
 
   Object.assign(user, params);
   await userRepository.save(user);
