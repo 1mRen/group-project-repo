@@ -35,6 +35,11 @@ interface CreateUserParams {
 }
 
 async function create(params: CreateUserParams): Promise<void> {
+  //Validate email format:
+  if (!params.email.match(/^\S+@\S+\.\S+$/)) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, 'Invalid email format');
+  }
+  
   // Check if email already exists
   if (await userRepository.findOne({ where: { email: params.email } })) {
     throw new ApiError(StatusCodes.CONFLICT, `Email "${params.email}" is already registered`);
