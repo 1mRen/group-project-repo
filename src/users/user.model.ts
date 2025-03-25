@@ -24,7 +24,7 @@ export class User {
     @Column({ type: 'varchar', length: 50, nullable: false })
     lastName: string;
 
-    @Column({ type: 'varchar', length: 20, nullable: false })
+    @Column({length: 20, nullable: false })
     role: string;
 
     @CreateDateColumn({ type: 'timestamp', precision: 6, default: () => 'CURRENT_TIMESTAMP(6)' })
