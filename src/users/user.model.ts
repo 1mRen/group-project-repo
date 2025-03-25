@@ -24,7 +24,7 @@ export class User {
     @Column({ type: 'varchar', length: 50, nullable: false })
     lastName: string;
 
-    @Column({ type: 'varchar', length: 20, nullable: false })
+    @Column({length: 20, nullable: false })
     role: string;
 
     @CreateDateColumn({ type: 'timestamp', precision: 6, default: () => 'CURRENT_TIMESTAMP(6)' })
@@ -32,8 +32,8 @@ export class User {
 
     @UpdateDateColumn({ type: 'timestamp', precision: 6, default: () => 'CURRENT_TIMESTAMP(6)', onUpdate: 'CURRENT_TIMESTAMP(6)' })
     updatedAt!: Date;
-
-
+    
+  //jairus
     //here is conflict
     constructor(email: string, username: string, passwordHash: string, title: string, firstName: string, lastName: string, role: string) {
         this.email = email;
