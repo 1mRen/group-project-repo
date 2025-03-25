@@ -33,6 +33,15 @@ export class User {
     @UpdateDateColumn({ type: 'timestamp', precision: 6, default: () => 'CURRENT_TIMESTAMP(6)', onUpdate: 'CURRENT_TIMESTAMP(6)' })
     updatedAt!: Date;
     
-//jairus
-
+  //jairus
+    //here is conflict
+    constructor(email: string, username: string, passwordHash: string, title: string, firstName: string, lastName: string, role: string) {
+        this.email = email;
+        this.username = username;
+        this.passwordHash = passwordHash;
+        this.title = title;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.role = role;
+    }
 }
